@@ -1,0 +1,37 @@
+body {
+  padding: 0;
+}
+#meet {
+  width: 70%;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+#main {
+  display: flex;
+  flex-wrap: wrap;
+}
+#tables {
+  width: 30%;
+  padding: 1ch;
+}
+.table {
+  width: 100%;
+  margin: 1rem 0;
+  color: #212529;
+  border: 1px solid black;
+  padding: 1ch;
+  display: flex;
+  flex-direction: column;
+}
+.table-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.table-displayName {
+  font-weight: 600;
+}
+.table-isSponsor {
+  font-style: italic;
+}

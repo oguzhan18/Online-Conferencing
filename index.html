@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://unpkg.com/bootstrap@4.5.3/dist/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://unpkg.com/bootstrap-vue@2.20.1/dist/bootstrap-vue.css'><link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="app">
+  <div id='content'>
+      <div id='main'>
+        <div id='tables'>
+          <div class='new_button_div'>
+            <button class='pure-button button-100 button-new' @click='new_room()'>Yeni Bir Görüşme Oluşturunuz</button>
+          </div>
+          <div id='app'>
+            <div class='table' :class="table_class(table)" v-for='table in tables' :key='table.roomName'>
+              <div class="table-heading">
+                <span class="table-displayName">{{table.roomName}}</span>
+                <span class="table-isSponsor" v-if='table.isSponsor'></span>
+              </div>
+              <div :class="person_class(person)" v-for='person in table.people' :id='person.userID' :key='person.userID'>{{ person.displayName }}</div>
+              <button
+                v-if='not_current(table)'
+                class='pure-button button-100'
+                :class="button_class(table)"
+                @click='join_room(table.roomName)'
+                >Join</button>
+            </div>
+          </div>
+        </div>
+        <div id='meet'>
+          Başlamak için herhangi bir masya kayılınız...
+        </div>
+      </div>
+    </div>
+</div>
+  <script src='https://unpkg.com/babel-polyfill/dist/polyfill.min.js'></script>
+<script src='https://unpkg.com/vue@2.6.12/dist/vue.min.js'></script>
+<script src='https://unpkg.com/bootstrap-vue@2.20.1/dist/bootstrap-vue.js'></script>
+<script src='https://unpkg.com/bootstrap-vue@2.20.1/dist/bootstrap-vue-icons.js'></script>
+<script src='https://meet.jit.si/external_api.js'></script><script  src="script.js"></script>
+
+</body>
+</html>
